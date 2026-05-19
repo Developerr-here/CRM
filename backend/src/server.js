@@ -5,6 +5,7 @@ import express from "express";
 import dotenv from "dotenv";
 dotenv.config();
 import cors from "cors";
+import { corsOptions } from './config/cors.js';
 import connectDB from "./config/db.js"; // Note: .js extension is REQUIRED in ESM
 import authRoutes from "./routes/authRoutes.js";
 import cookieParser from "cookie-parser"; // npm install cookie-parser
@@ -16,10 +17,7 @@ import taskRoutes from "./routes/taskRoutes.js";
 
 const app=express();
 
-app.use(cors({
-  origin: "http://localhost:5173", // Allow your frontend
-  credentials: true                // Allow cookies
-}));
+app.use(cors(corsOptions)); // Use the CORS options defined in config/cors.js
 
 app.use(express.json());
 app.use(cookieParser()); // Add this for JWT cookies
