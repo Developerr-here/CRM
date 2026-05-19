@@ -52,7 +52,7 @@ const Dashboard = () => {
   return (
     <div className="space-y-8 animate-in fade-in duration-500">
       {/* Welcome Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+      {/* <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
             Welcome back, {user?.name?.split(' ')[0] || 'there'} 👋
@@ -65,7 +65,25 @@ const Dashboard = () => {
         <div className="px-4 py-2 bg-white border border-slate-200 rounded-lg shadow-sm text-xs font-medium text-slate-500">
           Last Updated: {new Date().toLocaleTimeString()}
         </div>
-      </div>
+      </div> */}
+
+{/* Welcome Header */}
+<div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+  <div>
+    <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
+      Welcome back, {user?.name?.split(' ')[0] || 'there'} 👋
+    </h1>
+    <p className="text-slate-500 text-sm flex items-center gap-1.5 mt-1">
+      <Building2 size={14} />
+      {/* ADDED THE QUESTION MARK BELOW (?.) */}
+      Managing <span className="font-semibold text-slate-700">{user?.organization || 'your team'}</span>
+    </p>
+  </div>
+  <div className="px-4 py-2 bg-white border border-slate-200 rounded-lg shadow-sm text-xs font-medium text-slate-500">
+    Last Updated: {new Date().toLocaleTimeString()}
+  </div>
+</div>
+
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
