@@ -1,5 +1,5 @@
 import Lead from "../models/Lead.js";
-import { triggerAiAnalysis } from "../utils/aiworkflows.js";
+import { triggerAiAnalysis } from "../utils/aiWorkflows.js";
 
 // @desc    Create new lead
 // @route   POST /api/leads
