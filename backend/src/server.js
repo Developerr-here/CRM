@@ -13,6 +13,7 @@ import { errorHandler } from "./middleware/errorMiddleware.js";
 import customerRoutes from "./routes/customerRoutes.js";
 import leadRoutes from "./routes/leadRoutes.js";
 import taskRoutes from "./routes/taskRoutes.js";
+import dashboardRoutes from "./routes/dashboardRoutes.js";
 
 
 const app=express();
@@ -31,7 +32,8 @@ app.use("/api/leads", leadRoutes);
 
 // ... other routes
 app.use("/api/auth", authRoutes);
-app.use("/api/customers", customerRoutes); // Add this
+app.use("/api/customers", customerRoutes);
+app.use("/api/dashboard", dashboardRoutes);
 
 
 

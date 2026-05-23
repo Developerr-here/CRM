@@ -1,3 +1,6 @@
+import Customer from "../models/Customer.js";
+import Lead from "../models/Lead.js";
+
 // @desc    Get SaaS Dashboard Stats
 // @route   GET /api/dashboard/stats
 export const getDashboardStats = async (req, res) => {
