@@ -54,6 +54,15 @@ export const getMe = async (req, res) => {
   }
 };
 
+export const logoutUser = async (req, res) => {
+  res.clearCookie("jwt", {
+    httpOnly: true,
+    secure: process.env.NODE_ENV !== "development",
+    sameSite: "strict",
+  });
+  res.json({ message: "Logged out successfully" });
+};
+
 // import User from "../models/User.js";
 // import generateToken from "../utils/generateToken.js";
 
