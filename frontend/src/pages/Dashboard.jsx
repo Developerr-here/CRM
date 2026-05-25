@@ -1,5 +1,3 @@
-
-
 import { useQuery } from '@tanstack/react-query';
 import api from '../api/axios'; // Ensure you import your axios instance
 import { Users, Target, DollarSign, TrendingUp, Building2 } from 'lucide-react';

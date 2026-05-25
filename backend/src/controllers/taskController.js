@@ -19,6 +19,7 @@ export const getTasks = async (req, res) => {
 export const createTask = async (req, res) => {
   const task = await Task.create({
     ...req.body,
+    assignedTo: req.body.assignedTo || req.user._id, // Assign to current user if unspecified
     organization: req.org, // Auto-attach the organization
     createdBy: req.user._id
   });

@@ -85,8 +85,8 @@ export const internalAiLogic = async (leadId) => {
       description: data.task_desc || "Automated follow-up suggested by AI Agent.",
       status: "pending",
       priority: data.score > 80 ? "high" : "medium",
-      lead: lead._id,
-      customer: lead.customer?._id,
+      relatedLead: lead._id, // Fixed: align with Task model
+      assignedTo: lead.assignedTo, // Fixed: added required user mapping
       organization: lead.organization,
       dueDate: new Date(Date.now() + 24 * 60 * 60 * 1000) // Due in 24 hours
     });

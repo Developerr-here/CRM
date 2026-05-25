@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'; // Added useMutation & useQueryClient
 import { fetchCustomers, deleteCustomer } from '../api/customerApi'; // Added deleteCustomer

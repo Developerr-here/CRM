@@ -22,7 +22,6 @@ app.use(cors(corsOptions)); // Use the CORS options defined in config/cors.js
 
 app.use(express.json());
 app.use(cookieParser()); // Add this for JWT cookies
-app.use(errorHandler);
 
 // ... existing routes
 app.use("/api/tasks", taskRoutes);
@@ -34,6 +33,8 @@ app.use("/api/leads", leadRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/customers", customerRoutes);
 app.use("/api/dashboard", dashboardRoutes);
+
+app.use(errorHandler);
 
 
 
