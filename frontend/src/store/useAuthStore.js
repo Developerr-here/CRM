@@ -6,7 +6,12 @@ const useAuthStore = create((set) => ({
   isCheckingAuth: true, // This stops the "checkAuth is not a function" crash
 
   // Function to manually set user after login/register
-  setUser: (user) => set({ user, isCheckingAuth: false }),
+  setUser: (user) => {
+    if (user?.token) {
+      localStorage.setItem('token', user.token);
+    }
+    set({ user, isCheckingAuth: false });
+  },
 
   // THE MISSING FUNCTION:
   checkAuth: async () => {
@@ -14,6 +19,7 @@ const useAuthStore = create((set) => ({
       const res = await api.get('/auth/me');
       set({ user: res.data, isCheckingAuth: false });
     } catch (error) {
+      localStorage.removeItem('token');
       set({ user: null, isCheckingAuth: false });
     }
   },
@@ -24,6 +30,7 @@ const useAuthStore = create((set) => ({
     } catch (error) {
       console.error("Logout failed", error);
     } finally {
+      localStorage.removeItem('token');
       set({ user: null });
     }
   },
